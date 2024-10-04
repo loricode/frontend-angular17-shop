@@ -1,0 +1,11 @@
+.footer {
+   height: 60px;
+   background-color: rgb(41, 3, 3);
+   display: flex;
+   align-items: center;
+}
+
+.footer p {
+   margin-left: 4px;
+  color: #fff;
+}

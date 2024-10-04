@@ -1,0 +1,14 @@
+.login{
+   display: flex;
+   height: 100dvh;
+   justify-content: center;
+   align-items: center;
+}
+
+.card{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   min-width: 340px;
+}
+

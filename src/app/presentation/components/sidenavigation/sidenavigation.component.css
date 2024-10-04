@@ -1,0 +1,13 @@
+
+.container-sidenav{
+   background-color: #ececec;
+   overflow-y: auto;
+   min-width: 300px;
+   max-width: 300px;
+   height: calc(100dvh - 120px);
+}
+
+.container-sidenav .p-menuitem-link{
+   background-color: #ececec;
+}
+

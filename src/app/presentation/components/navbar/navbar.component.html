@@ -1,0 +1,37 @@
+<nav class="navbar">
+  <div class="left-menu">
+    <span></span>
+  </div>
+
+  <div class="right-menu">
+    <p-menu #menu [model]="items" [popup]="true">
+
+      <ng-template pTemplate="start">
+          <div class="profile-avatar">
+            <p-avatar
+            [style]="{ cursor: 'pointer', backgroundColor: '#ececec' }"
+            size="xlarge"
+            shape="circle"
+            (click)="menu.toggle($event)"
+          >
+            <i class="pi pi-user"></i>
+          </p-avatar>
+          </div>
+         
+      </ng-template>
+
+      <ng-template pTemplate="submenuheader" let-item>
+         <span>{{ item.label }}</span>
+     </ng-template>
+     
+   </p-menu>
+    <p-avatar
+      [style]="{ cursor: 'pointer', backgroundColor: '#fff' }"
+      size="large"
+      shape="circle"
+      (click)="menu.toggle($event)"
+    >
+      <i class="pi pi-user"></i>
+    </p-avatar>
+  </div>
+</nav>

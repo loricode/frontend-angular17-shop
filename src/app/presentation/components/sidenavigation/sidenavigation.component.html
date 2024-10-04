@@ -1,0 +1,16 @@
+
+    <div class="container-sidenav">
+        <p-accordion [activeIndex]="1">
+        @for (item of listMenu; track $index) {
+            <p-accordionTab header={{item.label}}>
+                @for (item of listMenu; track $index) {
+                    <p>
+                        {{item.code}}
+                    </p>
+                }
+            </p-accordionTab>
+        }        
+            
+        </p-accordion>
+  
+</div>

@@ -1,0 +1,29 @@
+<div class="login">
+  <p-card>
+    <form class="card" [formGroup]="formLogin" (submit)="handleLogin()">
+      <input
+        autocomplete="username"
+        placeholder="Email"
+        type="text"
+        formControlName="email"
+        pInputText
+      />
+
+      <input
+        autocomplete="current-password"
+        placeholder="Contraseña"
+        type="password"
+        formControlName="password"
+        pInputText
+      />
+
+      <div>
+        <button
+          style="width: 100%;"
+          pButton
+          label="Iniciar sesión"
+        ></button>
+      </div>
+    </form>
+  </p-card>
+</div>

@@ -1,0 +1,42 @@
+<div class="container-shop">
+  <app-shop-navbar />
+  <main class="container-main">
+    <section class="catalog">
+      @for (item of products; track $index) {
+      <div class="card" (click)="detailProduct(item)">
+         <div class="card-content">
+        <img class="photo" src={{item.image}} alt={{item.name}} />
+        {{ item.name }}
+       </div>
+     </div>
+      }
+    </section>
+  
+  <p-dialog header="Detalle" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+      
+    <div class="header-modal">
+        <img class="photo-detail" loading="lazy" src={{product.image}} alt={{product.name}}>
+    </div>
+
+    <section class="detail">
+       
+      <p class="text-detail">
+        Precio: <b>{{product.price | currency: 'COP'}}</b>
+      </p>
+
+      <p class="text-detail">Altura: <b>{{product.height}}</b></p>
+
+      <p class="text-detail">Experiencia: <b>{{product.baseExperience}}</b></p>
+    
+      <p class="text-detail">tipo: <b>{{ product.types }}</b></p>
+
+    </section>
+
+    <div class="modal-footer">
+        <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+    </div>
+   </p-dialog>
+
+  </main>
+  <app-shop-footer />
+</div>

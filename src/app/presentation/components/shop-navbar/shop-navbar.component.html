@@ -1,0 +1,129 @@
+<nav class="navbar">
+  <div class="left-menu">
+    <span>Tienda pokemon</span>
+  </div>
+
+  <div class="right-menu">
+    <div class="right-buttons">
+      @if (userGlobalService.user.login) {
+      <p class="text-white">{{ userGlobalService.user.username }}</p>
+      <p-button
+        icon="pi pi-sign-out"
+        (onClick)="closeSesion()"
+        class="p-button-primary"
+      />
+
+      }@else{
+      <p-button
+        (onClick)="openModalLogin()"
+        class="p-button-primary"
+        [style]="{ padding: '0.1rem 0.4rem' }"
+        pButton
+        label="Inicia sesión"
+      >
+      </p-button>
+      <p-button
+        (onClick)="openModalRegister()"
+        [style]="{ padding: '0.1rem 0.4rem', }"
+        pButton
+        label="Registrarse"
+      >
+      </p-button>
+
+      }
+    </div>
+  </div>
+
+  <p-dialog
+    header="login"
+    [modal]="true"
+    [(visible)]="visibleLogin"
+    [style]="{ width: '25rem' }"
+  >
+    <form [formGroup]="authLogin" (submit)="submitLogin()">
+      <section class="detail">
+        <div class="item">
+          <input
+            placeholder="Correo"
+            [style]="{ width: '100%' }"
+            type="text"
+            pInputText
+            formControlName="email"
+          />
+        </div>
+
+        <div class="item">
+          <input
+           
+            placeholder="Contraseña"
+            [style]="{ width: '100%' }"
+            type="password"
+            pInputText
+            formControlName="password"
+          />
+        </div>
+      </section>
+
+      <div class="action-modal">
+        <p-button
+          disabled="{{ !authLogin.valid }}"
+          [style]="{ width: '100%' }"
+          label="Login"
+          severity="primary"
+          type="submit"
+        />
+      </div>
+    </form>
+  </p-dialog>
+
+  <p-dialog
+    header="Registrarse"
+    [modal]="true"
+    [(visible)]="visibleRegister"
+    [style]="{ width: '25rem' }"
+  >
+    <form [formGroup]="authRegister" (submit)="submitRegister()">
+      <section class="detail">
+        <div class="item">
+          <input type="text" 
+           placeholder="Nombre"
+          [style]="{ width: '100%' }"
+          pInputText formControlName="username" />
+        </div>
+
+        <div class="item">
+          <input type="text" 
+           placeholder="Correo"
+          [style]="{ width: '100%' }"
+          pInputText formControlName="email" />
+        </div>
+
+        <div class="item">
+          <input
+             autocomplete="off"
+            [style]="{ width: '100%' }"
+            type="password"
+            placeholder="Contraseña"
+            pInputText
+            formControlName="password"
+          />
+        </div>
+
+        <div class="item">
+          <input
+          autocomplete="new-password"
+             placeholder="Repetir Contraseña"
+            [style]="{ width: '100%' }"
+            type="password"
+            pInputText
+            formControlName="repeatPassword"
+          />
+        </div>
+      </section>
+
+      <div class="action-modal">
+        <p-button type="submit" [style]="{ width: '100%' }" label="Registrar" severity="primary" />
+      </div>
+    </form>
+  </p-dialog>
+</nav>
